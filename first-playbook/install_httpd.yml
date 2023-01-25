@@ -11,5 +11,11 @@
   - name: install httpd package
     ansible.builtin.yum:
       name: httpd
-      state: absent #To uninstall the package uncomment this line
+      #state: absent #To uninstall the package uncomment this line
+    when: ansible_distribution == "Amazon" #Run this task only if the distribution is AL.
 
+  - name: install apache2 package
+    apt:
+      name: apache2
+      #state: absent #To uninstall the package uncomment this line
+    when: ansible_distribution == "Ubuntu" #Run this task only if the distribution is AL.
