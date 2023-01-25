@@ -4,6 +4,12 @@
   become: true
   tasks:
 
+  - name: update cache
+    ansible.builtin.yum:
+      update_cache: yes
+
   - name: install httpd package
     ansible.builtin.yum:
       name: httpd
+      state: absent #To uninstall the package uncomment this line
+
