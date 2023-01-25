@@ -1,5 +1,8 @@
-- Give permissions to the key:
+1. PING:
+- Give permissions to the key & run the commands:
+```
     sudo chmod 600 key.pem
-
-- Run the command:
     sudo ansible all --key-file ./medina.pem -i inventory -m ping
+```
+
+
