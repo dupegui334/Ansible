@@ -7,6 +7,7 @@
   - name: update cache
     ansible.builtin.yum:
       update_cache: yes
+    when: ansible_distribution == "Amazon" #Run this task only if the distribution is AL.
 
   - name: install httpd package
     ansible.builtin.yum:
@@ -18,4 +19,4 @@
     apt:
       name: apache2
       #state: absent #To uninstall the package uncomment this line
-    when: ansible_distribution == "Ubuntu" #Run this task only if the distribution is AL.
+    when: ansible_distribution in ["Ubuntu", "Debian"] #Run this task only if the distribution is AL.
